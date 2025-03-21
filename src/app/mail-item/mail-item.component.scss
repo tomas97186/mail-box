@@ -1,0 +1,63 @@
+a {
+    text-decoration: none;
+}
+
+.mail-list {
+    border-bottom: 1px solid #e9e9e9;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 15px;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f9f9f9;
+    }
+}
+
+.mail-list .form-check {
+    margin-top: 12px;
+    width: 11%;
+    min-width: 20px;
+}
+
+.mail-list .content {
+    flex-grow: 1;
+    max-width: 90%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mail-list .content .sender-name {
+    font-size: 0.75rem;
+    font-weight: 400;
+    max-width: 95%;
+}
+
+.mail-list .content .message_text {
+    margin: 0;
+    max-width: 93%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.mail-list .details .date {
+    text-align: right;
+    margin: auto 15px auto 0;
+    white-space: nowrap;
+}
+
+.mail-list .details i {
+    margin: auto 0;
+    color: #ddd;
+}
+
+.mail-list .details i.favorite {
+    color: #fcd539;
+}
+
+.mail-list.new_mail .details .date {
+    color: #000000;
+}

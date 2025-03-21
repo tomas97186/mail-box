@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="back()">
+        <mat-icon style="scale: 1.5;">arrow_back</mat-icon>
+    </button>
+    <span><strong>P</strong>mail</span>
+</mat-toolbar>
+
+<div class="mail-view">
+    <div class="message-body">
+        <div class="sender-details">
+            <img class="img-sm rounded-circle mr-3"
+                src="http://www.urbanui.com/dashflat/template/images/faces/face11.jpg" alt="">
+            <div class="details d-md-flex w-100">
+                <div>
+                    <div class="d-flex align-items-center">
+                        <h3 class="msg-subject">{{email.subject}}</h3>
+                    </div>
+                    <p class="sender-email">
+                        <strong>Da:</strong><span class="ms-2 text-secondary">{{email.sender}}</span>
+                        <!-- <a href="#">itsmesarah268@gmail.com</a> -->
+                        &nbsp;<i class="mdi mdi-account-multiple-plus"></i>
+                    </p>
+                </div>
+                <div class="ms-auto">
+                    <div class="date text-secondary font-weight-bold text-md-end">
+                        {{email.date | date: 'dd/MM/yyyy'}}
+                        <br>
+                        <small>
+                            {{email.date | date: 'hh:mm a'}}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="message-content">
+            <p style="font-size: medium;">
+                {{email.body}}
+            </p>
+        </div>
+
+        <div class="row container">
+            <div class="btn-toolbar">
+
+                <button mat-stroked-button class="me-2"><mat-icon>reply</mat-icon> Reply</button>
+                <button mat-stroked-button class="me-2"><mat-icon>reply_all</mat-icon> Reply All</button>
+                <button mat-stroked-button><mat-icon>forward</mat-icon> Forward</button>
+            </div>
+        </div>
+        <!-- <div class="attachments-sections">
+            <ul>
+                <li>
+                    <div class="thumb"><i class="mdi mdi-file-pdf"></i></div>
+                    <div class="details">
+                        <p class="file-name">Seminar Reports.pdf</p>
+                        <div class="buttons">
+                            <p class="file-size">678Kb</p>
+                            <a href="#" class="view">View</a>
+                            <a href="#" class="download">Download</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="thumb"><i class="mdi mdi-file-image"></i></div>
+                    <div class="details">
+                        <p class="file-name">Product Design.jpg</p>
+                        <div class="buttons">
+                            <p class="file-size">1.96Mb</p>
+                            <a href="#" class="view">View</a>
+                            <a href="#" class="download">Download</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+</div>

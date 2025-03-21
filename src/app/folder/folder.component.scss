@@ -1,0 +1,56 @@
+/* Rounded sliders */
+/*-------------------------------------------------------------------*/
+/* === Email === */
+
+/* Mail List Container */
+.mail-list-container {
+    border-left: 1px solid #e9e9e9;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-y: hidden;
+}
+
+.mail-list {
+    overflow-y: scroll;
+    max-height: 80vh;
+}
+
+.search-bar {
+    background-color: white;
+    max-height: 20vh;
+}
+
+.sidenav-container {
+    height: 100%;
+}
+
+
+/* Modifica il background del sidenav per un tema chiaro */
+mat-sidenav {
+    background-color: #fff;
+    color: #333;
+    /* Colore scuro per il testo */
+}
+
+
+
+/* Cambia il colore al passaggio del mouse */
+mat-list-item:hover {
+    background-color: #f4f4f4;
+    /* Colore chiaro di evidenziazione */
+}
+
+/* Stile per il contenuto principale quando il sidenav è aperto */
+mat-sidenav-content {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Rendi il contenuto del menu laterale più gradevole */
+mat-list-item {
+    margin-left: 10px;
+    padding: 20px;
+    display: inline-flex;
+
+}

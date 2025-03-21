@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+
+/* Definizione dei colori */
+$my-primary: mat.define-palette(mat.$red-palette, 500);
+$my-accent: mat.define-palette(mat.$red-palette, 700);
+$my-warn: mat.define-palette(mat.$red-palette, 900);
+
+/* Creazione del tema */
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+                accent: $my-accent,
+                warn: $my-warn,
+            )));
+
+/* Applica il tema */
+@include mat.all-component-themes($my-theme);
+
+body {
+    overflow-y: hidden !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

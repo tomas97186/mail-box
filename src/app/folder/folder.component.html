@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+
+<mat-sidenav-container class="sidenav-container" fullscreen>
+    <mat-sidenav #sidenav class="p-2" [opened]="isSidenavOpen">
+        <mat-nav-list>
+            <a (click)="toggleSidenav()" routerLink="/inbox" routerLinkActive="active-list-item" mat-list-item>
+                <mat-icon matListItemIcon class="me-2">inbox</mat-icon>
+                <span matListItemTitle>Posta in arrivo</span>
+            </a>
+            <a (click)="toggleSidenav()" routerLink="/sent" routerLinkActive="active-list-item" mat-list-item>
+                <mat-icon matListItemIcon class="me-2">send</mat-icon>
+                <span matListItemTitle>Inviati</span>
+            </a>
+            <a (click)="toggleSidenav()" routerLink="/deleted" routerLinkActive="active-list-item" mat-list-item>
+                <mat-icon matListItemIcon class="me-2">delete</mat-icon>
+                <span matListItemTitle>Eliminate</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+        <mat-toolbar color="primary">
+            <div class="d-flex">
+                <button mat-icon-button class="example-icon" (click)="toggleSidenav()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>
+                    @switch (currentFolder | async) {
+                    @case ('inbox') {
+                    Posta in arrivo
+                    }
+                    @case ('sent') {
+                    Inviati
+                    }
+                    @case ('deleted') {
+                    Eliminate
+                    }
+                    }
+                </span>
+            </div>
+            <span><strong>P</strong>mail</span>
+        </mat-toolbar>
+        <div class="px-3 pb-3">
+            <div class="email-wrapper wrapper h-100">
+                <div class="row align-items-stretch h-100">
+                    <div class="mail-list-container col-md-10 border-right w-100">
+                        <div class="mail-list">
+                            @for (email of emails; track email.id) {
+                            <app-mail-item [mail]="email"></app-mail-item>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
