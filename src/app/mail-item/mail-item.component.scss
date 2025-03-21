@@ -36,7 +36,19 @@ a {
 
 .mail-list .content .message_text {
     margin: 0;
+    font-weight: bold;
+    font-size: 1.05rem;
     max-width: 93%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mail-list .content .message_body {
+    margin: 0;
+    max-width: 93%;
+    font-size: .8rem;
+    max-lines: 2;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

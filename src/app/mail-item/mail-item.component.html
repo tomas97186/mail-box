@@ -1,15 +1,16 @@
 <div class="mail-list new_mail" (click)="openDetails()">
-    <div class="content">
-        <p class="sender-name">{{mail.sender}}</p>
-        <p class="message_text">{{mail.subject}}</p>
+  <div class="content">
+    <p class="sender-name">{{ mail.sender }}</p>
+    <p class="message_text">{{ mail.subject }}</p>
+    <p class="message_body">{{ mail.body }}</p>
+  </div>
+  <div class="details text-end">
+    {{ mail.date | date : "dd/MM" }}
+    @if(mail.folder === 'starred') {
+    <div>
+      <mat-icon color="accent">star</mat-icon>
     </div>
-    <div class="details text-end">
-        {{mail.date | date: 'dd/MM'}}
-        @if(mail.folder === 'starred') {
-        <div>
-            <mat-icon color="accent">star</mat-icon>
-        </div>
 
-        }
-    </div>
+    }
+  </div>
 </div>
