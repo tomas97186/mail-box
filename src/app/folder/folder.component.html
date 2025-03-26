@@ -4,8 +4,16 @@
 />
 
 <mat-sidenav-container class="sidenav-container" fullscreen>
-  <mat-sidenav #sidenav class="py-2 px-4" [opened]="isSidenavOpen">
+  <mat-sidenav
+    #sidenav
+    class="py-2 px-4"
+    [opened]="sidenavMode === 'side' || isSidenavOpen"
+    [mode]="sidenavMode"
+  >
     <mat-nav-list class="h-100">
+      <!-- <span class="username">
+        {{ (authService.getUsername()?.split("@"))![0] }}
+      </span> -->
       <a
         (click)="toggleSidenav()"
         routerLink="/inbox"
@@ -36,8 +44,8 @@
         <mat-icon matListItemIcon class="me-2">delete</mat-icon>
         <span matListItemTitle>Eliminate</span>
       </a>
-      <hr>
-      <a (click)="toggleSidenav()" routerLink="/logout" mat-list-item>
+      <hr />
+      <a (click)="toggleSidenav()" (click)="logout()" mat-list-item>
         <mat-icon matListItemIcon class="me-2 text-danger">logout</mat-icon>
         <span matListItemTitle class="text-danger">Logout</span>
       </a>
@@ -46,17 +54,22 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <div class="d-flex align-items-center">
+        @if(sidenavMode === 'over') {
         <button mat-icon-button class="example-icon" (click)="toggleSidenav()">
           <mat-icon>menu</mat-icon>
         </button>
+        }
         <span>
           @switch (currentFolder | async) { @case ('inbox') { Posta in arrivo }
           @case ('sent') { Inviati } @case ('deleted') { Eliminate } }
         </span>
       </div>
-      <span><span style="font-size: 1.5rem;">P</span><small style="color: rgb(218, 218, 218);">mail</small></span>
+      <span
+        ><span style="font-size: 1.5rem">P</span
+        ><small style="color: rgb(218, 218, 218)">mail</small></span
+      >
     </mat-toolbar>
-    <div class="px-3 pb-3">
+    <div class="px-3">
       <div class="email-wrapper wrapper h-100">
         <div class="row align-items-stretch h-100">
           <div class="mail-list-container col-md-10 border-right w-100">

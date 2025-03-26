@@ -2,7 +2,10 @@
   <button mat-icon-button (click)="back()">
     <mat-icon>arrow_back</mat-icon>
   </button>
-  <span><strong>P</strong>mail</span>
+  <span
+    ><span style="font-size: 1.5rem">P</span
+    ><small style="color: rgb(218, 218, 218)">mail</small></span
+  >
 </mat-toolbar>
 
 <div class="mail-view">
@@ -44,13 +47,17 @@
 
     <div class="row container">
       <div class="btn-toolbar">
-        <button mat-stroked-button class="me-2">
+        <button
+          mat-stroked-button
+          class="me-2"
+          (click)="funzioneNonDisponibile()"
+        >
           <mat-icon>reply</mat-icon> Reply
         </button>
-        <button mat-stroked-button class="me-2">
+        <button mat-stroked-button class="me-2" (click)="funzioneNonDisponibile()">
           <mat-icon>reply_all</mat-icon> Reply All
         </button>
-        <button mat-stroked-button><mat-icon>forward</mat-icon> Forward</button>
+        <button mat-stroked-button (click)="funzioneNonDisponibile()"><mat-icon>forward</mat-icon> Forward</button>
       </div>
     </div>
     <!-- <div class="attachments-sections">
