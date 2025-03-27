@@ -11,7 +11,11 @@ export class AuthService {
     '3b9d0e2a0abab0bd91b3b7f22112ef2eb594ea1708048aa6a5e519f32189c421',
   ];
 
-  constructor(private router: Router) {}
+  private passwordDimenticataDict: { [key: string]: string } = {
+    'marco.mancini@pmail.mycases.org': 'Il mio mondo.'
+  };
+
+  constructor(private router: Router) { }
 
   login(username: string, password: string): boolean {
     const encToken = CryptoJS.SHA256(username + password).toString();
@@ -23,6 +27,11 @@ export class AuthService {
     }
 
     return false;
+  }
+
+  passwordDimenticata(username: string): string {
+    return this.passwordDimenticataDict[username];
+
   }
 
   logout(): void {

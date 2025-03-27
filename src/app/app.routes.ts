@@ -14,6 +14,10 @@ export const routes: Routes = [
       import('./login/login.component').then((m) => m.LoginComponent),
   },
   {
+    path: 'password-dimenticata',
+    loadComponent: () => import('./password-dimenticata/password-dimenticata.component').then((m) => m.PasswordDimenticataComponent),
+  },
+  {
     path: 'details/:id',
     loadComponent: () =>
       import('./mail-details/mail-details.component').then(
