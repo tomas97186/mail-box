@@ -6,5 +6,6 @@ export interface EmailModel {
     date: Date;
     folder?: 'inbox' | 'sent' | 'drafts' | 'spam' | 'trash' | 'starred';
     body: string;
-    read?: boolean;
+    images?: string[];
+    toRead?: boolean; 
 }

@@ -49,13 +49,17 @@ export class FolderComponent {
     this.currentFolder = route.params.pipe(map((params) => params['folder']));
     this.emails$ = this.currentFolder.pipe(
       map((folder) =>
-        emails[authService.getToken()!].filter((em) => em.folder === folder)
+        emails[authService.getToken()!]
+          .filter((em) => em.folder === folder)
+          .sort((a,b) => b.date.getTime() - a.date.getTime())
       )
     );
-    breakpoint.observe([Breakpoints.Small, Breakpoints.XSmall, Breakpoints.Medium]).subscribe(result => {
-      console.log('result :>> ', result);
-      this.sidenavMode = result.matches ? 'over' : 'side';
-    });
+    breakpoint
+      .observe([Breakpoints.Small, Breakpoints.XSmall, Breakpoints.Medium])
+      .subscribe((result) => {
+        console.log('result :>> ', result);
+        this.sidenavMode = result.matches ? 'over' : 'side';
+      });
   }
 
   logout() {

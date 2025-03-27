@@ -1,4 +1,4 @@
-<div class="mail-list new_mail" (click)="openDetails()">
+<div class="mail-list" (click)="openDetails()" [ngClass]="{'new_mail': !!mail.toRead}">
   <div class="content">
     <p class="sender-name">{{ mail.sender }}</p>
     <p class="message_text">{{ mail.subject }}</p>
