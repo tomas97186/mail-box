@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
 
 export const emailResolver: ResolveFn<EmailModel> = (route, state) => {
   const id = route.params['id'];
-  const token = inject(AuthService).getToken();
+  const username = inject(AuthService).getUsername();
 
-  return emails[token!].find(email => email.id.toString() === id)!;
+  return emails[username!].find(email => email.id.toString() === id)!;
 };

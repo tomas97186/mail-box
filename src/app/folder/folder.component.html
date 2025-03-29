@@ -1,46 +1,20 @@
-<link
-  rel="stylesheet"
-  href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css"
-/>
+<link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css" />
 
 <mat-sidenav-container class="sidenav-container" fullscreen>
-  <mat-sidenav
-    #sidenav
-    class="py-2 px-4"
-    [opened]="sidenavMode === 'side' || isSidenavOpen"
-    [mode]="sidenavMode"
-  >
+  <mat-sidenav #sidenav class="py-2 px-4" [opened]="sidenavMode === 'side' || isSidenavOpen" [mode]="sidenavMode">
     <mat-nav-list class="h-100">
       <!-- <span class="username">
         {{ (authService.getUsername()?.split("@"))![0] }}
       </span> -->
-      <a
-        (click)="toggleSidenav()"
-        routerLink="/inbox"
-        routerLinkActive="active-list-item"
-        mat-list-item
-        class="mb-2"
-      >
+      <a (click)="toggleSidenav()" routerLink="/inbox" routerLinkActive="active-list-item" mat-list-item class="mb-2">
         <mat-icon matListItemIcon class="me-2">inbox</mat-icon>
         <span matListItemTitle>Posta in arrivo</span>
       </a>
-      <a
-        (click)="toggleSidenav()"
-        routerLink="/sent"
-        routerLinkActive="active-list-item"
-        mat-list-item
-        class="mb-2"
-      >
+      <a (click)="toggleSidenav()" routerLink="/sent" routerLinkActive="active-list-item" mat-list-item class="mb-2">
         <mat-icon matListItemIcon class="me-2">send</mat-icon>
         <span matListItemTitle>Inviati</span>
       </a>
-      <a
-        (click)="toggleSidenav()"
-        routerLink="/trash"
-        routerLinkActive="active-list-item"
-        mat-list-item
-        class="mb-2"
-      >
+      <a (click)="toggleSidenav()" routerLink="/trash" routerLinkActive="active-list-item" mat-list-item class="mb-2">
         <mat-icon matListItemIcon class="me-2">delete</mat-icon>
         <span matListItemTitle>Eliminate</span>
       </a>
@@ -64,18 +38,23 @@
           @case ('sent') { Inviati } @case ('deleted') { Eliminate } }
         </span>
       </div>
-      <span
-        ><span style="font-size: 1.5rem">P</span
-        ><small style="color: rgb(218, 218, 218)">mail</small></span
-      >
+      <span><span style="font-size: 1.5rem">P</span><small style="color: rgb(218, 218, 218)">mail</small></span>
     </mat-toolbar>
     <div class="px-3">
       <div class="email-wrapper wrapper h-100">
         <div class="row align-items-stretch h-100">
           <div class="mail-list-container col-md-10 border-right w-100">
             <div class="mail-list">
-              @for (email of emails$ | async; track email.id) {
+              @for (email of emails$ | async; track email.id;let last = $last) {
               <app-mail-item [mail]="email"></app-mail-item>
+              }@empty {
+              <!-- Se non ci sono email, mostra un messaggio -->
+              <div class="no-emails text-center mt-5" style="color: #6c757d; font-family: Arial, sans-serif;">
+                <mat-icon class="mb-2" style="scale: 3; color: #9e9e9e;">inbox</mat-icon>
+                <br><br>
+                <h3 style="font-weight: bold; font-size: 1.5rem;">Non hai email in questa cartella</h3>
+                <p style="font-size: 1rem; margin-top: 0.5rem;">Controlla le altre cartelle.</p>
+              </div>
               }
             </div>
           </div>

@@ -49,7 +49,7 @@ export class FolderComponent {
     this.currentFolder = route.params.pipe(map((params) => params['folder']));
     this.emails$ = this.currentFolder.pipe(
       map((folder) =>
-        emails[authService.getToken()!]
+        emails[authService.getUsername()!]
           .filter((em) => em.folder === folder)
           .sort((a,b) => b.date.getTime() - a.date.getTime())
       )

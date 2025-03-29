@@ -8,7 +8,7 @@ import * as CryptoJS from 'crypto-js';
 })
 export class AuthService {
   private users = [
-    '3b9d0e2a0abab0bd91b3b7f22112ef2eb594ea1708048aa6a5e519f32189c421',
+    '8edf6de5ec36b9194784fca359ce19bcca4dfaee747350e0d9d146a85381bd43',
   ];
 
   private passwordDimenticataDict: { [key: string]: string } = {
