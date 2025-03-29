@@ -2,6 +2,10 @@ mat-expansion-panel {
   box-shadow: none !important;
 }
 
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
 mat-panel-title {
   flex-direction: column;
   align-items: flex-start;
@@ -15,7 +19,7 @@ mat-panel-title {
 }
 
 ::ng-deep mat-expansion-panel-header.mat-expansion-panel-header {
-  margin: 10px !important;
+  padding: 10px !important;
 }
 
 .email-subject {
